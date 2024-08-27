@@ -1,0 +1,7 @@
+boto3==1.34.149
+botocore==1.34.149
+Faker==26.0.0
+pandas==2.2.2
+python-dotenv==1.0.1
+requests==2.32.3
+faker-commerce==1.0.4
