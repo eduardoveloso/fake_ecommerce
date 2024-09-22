@@ -2,9 +2,6 @@ import boto3
 from botocore.exceptions import ClientError
 import json
 
-
-
-
 def upload_to_s3(
     aws_access_key_id: str,
     aws_secret_access_key: str,
