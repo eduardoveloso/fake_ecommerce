@@ -12,7 +12,7 @@ def upload_to_s3(
 ):
     client = boto3.client(
         "s3",
-        aws_region_name=aws_region_name,
+        region_name=aws_region_name,
         aws_access_key_id=aws_access_key_id,
         aws_secret_access_key=aws_secret_access_key,
     )
