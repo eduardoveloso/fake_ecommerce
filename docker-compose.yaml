@@ -17,6 +17,8 @@ services:
 
   webserver:
     image: apache/airflow:latest-python3.9
+    env_file:
+      - .env
     depends_on:
       postgres:
         condition: service_healthy
@@ -51,6 +53,8 @@ services:
 
   scheduler:
     image: apache/airflow:latest-python3.9
+    env_file:
+      - .env
     depends_on:
       postgres:
         condition: service_healthy
