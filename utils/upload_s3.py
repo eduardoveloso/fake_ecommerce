@@ -23,9 +23,9 @@ def upload_to_s3(
         print(f"Erro ao serializar os dados: {e}")
 
     try:
-        object_key = f"ecommerce_files/raw/new_file/{file_name}"
-        client.put_object(Bucket=bucket_name, Key=object_key, Body=json_data, ContentType="application/json")
-        print(f"Dados enviados com sucesso para s3://{bucket_name}/{object_key}")
+            object_key = f"ecommerce_files/raw/new_file/{file_name}"
+            client.put_object(Bucket=bucket_name, Key=object_key, Body=json_data, ContentType="application/json")
+            print(f"Dados enviados com sucesso para s3://{bucket_name}/{object_key}")
     except ClientError as e:
         print(f"Erro ao fazer upload para o S3: {e}")
 
