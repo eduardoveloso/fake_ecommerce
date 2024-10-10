@@ -5,7 +5,7 @@ set -e
 airflow db migrate
 
 # Instalar as dependências
-pip install -r /requirements.txt
+pip install -r /fake_ecommerce_app/requirements.txt
 
 # Verificar qual serviço está sendo iniciado
 if [ "$SERVICE" = "webserver" ]; then
