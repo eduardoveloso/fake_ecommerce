@@ -1,11 +1,14 @@
 import os
 import sys
 
-project_path = os.path.dirname(__file__).split("/fake_ecommerce/")[0] + "/fake_ecommerce/"
-sys.path.append(project_path)
+project_path = (
+    os.path.dirname(__file__).split("/fake_ecommerce_app/airflow/")[0]
+    + "/fake_ecommerce_app/airflow/"
+)
+sys.path.append("/fake_ecommerce_app/airflow/")
 
-from utils.fake_generator import generate_orders
-from utils.upload_s3 import upload_to_s3
+from jobs.utils.fake_generator import generate_orders
+from jobs.utils.upload_s3 import upload_to_s3
 from dotenv import load_dotenv, find_dotenv
 from random import randint
 import time

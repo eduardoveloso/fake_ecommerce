@@ -5,9 +5,10 @@ import sys
 import os
 
 project_path = (
-    os.path.dirname(__file__).split("/fake_ecommerce/")[0] + "/fake_ecommerce/"
+    os.path.dirname(__file__).split("/fake_ecommerce_app/airflow/")[0]
+    + "/fake_ecommerce_app/airflow/"
 )
-sys.path.append(project_path)
+sys.path.append("/fake_ecommerce_app/airflow/")
 
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
@@ -15,7 +16,7 @@ AWS_BUCKET_NAME = os.getenv("AWS_BUCKET_NAME")
 AWS_REGION = os.getenv("AWS_REGION")
 
 def ingestion_process():
-    import src.ingestion_process
+    import jobs.ingestion_process
 
 
 default_args = {
