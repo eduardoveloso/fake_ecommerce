@@ -1,19 +1,10 @@
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from datetime import datetime, timedelta
 import sys
-import os
+from airflow import DAG
+from airflow.operators.empty import EmptyOperator
+from airflow.operators.python import PythonOperator
+from datetime import datetime, timedelta
 
-project_path = (
-    os.path.dirname(__file__).split("/fake_ecommerce_app/airflow/")[0]
-    + "/fake_ecommerce_app/airflow/"
-)
 sys.path.append("/fake_ecommerce_app/airflow/")
-
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_BUCKET_NAME = os.getenv("AWS_BUCKET_NAME")
-AWS_REGION = os.getenv("AWS_REGION")
 
 def ingestion_process():
     import jobs.ingestion_process
@@ -30,18 +21,22 @@ default_args = {
 }
 
 dag = DAG(
-    "ingestion_process",
+    dag_id="ingestion_process",
     default_args=default_args,
-    description="A simple DAG to run ingestion_process.py",
+    max_active_runs=1,
     schedule_interval=timedelta(days=1),
     start_date=datetime(2024, 9, 22),
     catchup=False,
+    tags=["fake_ecommerce", "ingestion", "S3"]
 )
 
-run_this = PythonOperator(
+start_task = EmptyOperator(task_id="start", dag=dag)
+end_task = EmptyOperator(task_id="end", dag=dag)
+
+ingestion = PythonOperator(
     task_id="run_ingestion_process",
     python_callable=ingestion_process,
     dag=dag,
 )
 
-run_this
+start_task >> ingestion >> end_task
