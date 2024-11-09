@@ -16,6 +16,7 @@ O propósito deste projeto é criar um pipeline de dados simulado para um e-comm
 5. **Orquestração com Airflow**: O Apache Airflow gerencia e orquestra cada etapa do pipeline, garantindo a execução e a coordenação dos processos.
 
 ![Arquitetura](https://lh7-rt.googleusercontent.com/docsz/AD_4nXc9-p4_nETi7LC5ITX2lhugWPpAWorGEHkLCEvTPgloFmnXTaE73pKEk9B5sxA49f9JpvyRgcKsuALVQ_KAnh130bFoaezxkIQ6bWXUSuJQbA7Xs9CiTmZ6pARkZRTwpuL2mZAoIh0ViTsqm6Z4IKE7sUQP?key=RymDh7qbhCFSE8YzTt8rCw)
+OBS: Nao estamos utilizado a API do Pipedrive nesse caso, mas sim um módulo Python responsável por gerar os dados fakes.
 
 ## Estrutura de Diretórios
 
