@@ -24,7 +24,7 @@ dag = DAG(
     dag_id="ingestion_process",
     default_args=default_args,
     max_active_runs=1,
-    schedule_interval=timedelta(days=1),
+    schedule_interval=None,
     start_date=datetime(2024, 9, 22),
     catchup=False,
     tags=["fake_ecommerce", "ingestion", "S3"]

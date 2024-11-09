@@ -5,3 +5,7 @@ pandas==2.1.4
 python-dotenv==1.0.1
 requests==2.32.3
 faker-commerce==1.0.4
+apache-airflow-providers-amazon==8.17.0
+# deltalake==0.20.2
+# delta-spark==3.2.0
+# pyspark==3.5.3
